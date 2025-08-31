@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Cake Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: blue; /* background color */
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .cake {
+      position: relative;
+      width: 260px;
+      height: 180px;
+    }
+
+    .layer {
+      position: absolute;
+      height: 50px;
+      border-radius: 10px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-300px);
+      opacity: 0;
+      animation: fall 1s ease forwards;
+    }
+
+    /* Bottom layer (biggest) - Red */
+    .layer:nth-child(1) {
+      width: 350px;
+      background: #331100;
+      bottom: 0;
+      animation-delay: 0.2s;
+    }
+
+    /* Middle layer (medium) - Light Red */
+    .layer:nth-child(2) {
+      width: 250px;
+      background: #411900; /* light red */
+      bottom: 50px;
+      animation-delay: 0.8s;
+    }
+
+    /* Top layer (smallest) - Pale Yellow */
+    .layer:nth-child(3) {
+      width: 150px;
+      background: #7f4e1e ;
+      bottom: 100px;
+      animation-delay: 1.4s;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateX(-50%) translateY(-300px);
+        opacity: 0;
+      }
+      70% {
+        transform: translateX(-50%) translateY(20px);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .candle {
+      position: absolute;
+      bottom: 150px; /* on top of cake */
+      left: 50%;
+      transform: translateX(-50%) translateY(-200px);
+      width: 20px;
+      height: 60px;
+      background: #fff;
+      border-radius: 5px;
+      opacity: 0;
+      animation: candleDrop 0.8s ease forwards;
+      animation-delay: 2s; /* after all layers */
+    }
+
+    @keyframes candleDrop {
+      from {
+        transform: translateX(-50%) translateY(-200px);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(-50%) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .flame {
+      position: absolute;
+      top: -25px;
+      left: 3px;
+      width: 14px;
+      height: 25px;
+      background: orange;
+      border-radius: 50% 50% 50% 50%;
+      opacity: 0;
+      animation: flicker 0.3s infinite alternate, flameAppear 0.5s ease forwards;
+      animation-delay: 2.8s; /* after candle */
+    }
+
+    @keyframes flicker {
+      from {
+        transform: scaleY(1) scaleX(1);
+        background: orange;
+      }
+      to {
+        transform: scaleY(1.2) scaleX(0.9);
+        background: gold;
+      }
+    }
+
+    @keyframes flameAppear {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: yellow;
+      font-size: 28px;
+      opacity: 0;
+      animation: textAppear 1s ease forwards;
+      animation-delay: 3.5s; /* after cake is built */
+    }
+
+    @keyframes textAppear {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+/* 🎁 Make the birthday message bigger */
+    pre {
+      font-size: 20px;
+      color: white;
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cake">
+    <div class="layer"></div> <!-- bottom (red) -->
+    <div class="layer"></div> <!-- middle (light red) -->
+    <div class="layer"></div> <!-- top (pale yellow) -->
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+  <h2>🎂 Happy Birthday! Dimple Ga🎉</h2>
+  <pre>
+Happy birthday, Best Friend✨💝
+
+My Dear Best Friend
+
+Happiest birthday to my precious soul🫶
+I never want to lose you. 
+I want to keep you forever in my heart you are my only best friend.
+ We will always together. 
+When ever i want you you're in my heart i always miss you because you are the only reason i believe in friendship🤗🤍. 
+Love my best friend 
+Once again happy birthday to my bestest friend✨💝
+</pre>
+</body>
+</html>
